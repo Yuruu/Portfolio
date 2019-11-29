@@ -1,0 +1,255 @@
+@import 'config';
+@import 'menu';
+
+* {
+    box-sizing: border-box;
+}
+::-webkit-scrollbar {
+    display: none;
+}
+body {
+    
+    color: $couleurpolice;
+    height: 100%;
+    margin: 0;
+    font-family: 'Josefin Sans', sans-serif;
+    line-height: 1.5;
+}
+
+h1, h2, h3 {
+    margin: 0;
+    font-weight: 400;
+
+    &.lg-heading {
+        font-size: 6rem;
+    }
+    &.sm-heading {
+        margin-bottom: 2rem;
+        padding: 0.2rem 1rem;
+    }
+}
+h6 {
+    font-size: 2rem;
+}
+
+a {
+    color: $couleurpolice;
+    text-decoration: none;
+}
+
+header {
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+}
+
+.text-secondary {
+    color: $couleur2;
+}
+section {
+    padding: 4rem;
+    height: 100%;
+
+    .icons {
+        margin-top: 1rem;
+
+        a {
+            padding: 0.4rem;
+
+            &:hover {
+                color: $couleur2;
+                @include easeOut();
+            }
+        }
+    }
+    
+}
+section#home, section#work {
+    min-height: 100vh;
+    background-color: $couleur1;
+    box-shadow: 10px 1px 3px black;
+}
+section#propos, section#skills {
+    min-height: 100vh;
+    background: darken($couleur1, 10)
+}
+section#contact {
+    background-color: $couleur1;
+    min-height: 50vh;
+}
+.about-info {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas: 
+    'bioimage bio';
+    grid-template-columns:1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-bottom: 40px;
+
+    .bio-image {
+        grid-area: bioimage;
+        margin: auto;
+        max-width: 300px;
+        border-radius: 50%;
+        border: $couleur2 3px solid;
+    }
+    
+    .bio {
+        grid-area: bio;
+        font-size: 1.5rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+
+        .boutoncv {
+            background:$couleur1;
+            border-radius:5px;
+            box-shadow:0 4px darken($couleur1, 15);
+            padding:12px 15px;
+            color: #ffffff;
+            display:inline-block;
+            text-align:center;
+            text-shadow:0px 0px #000000;
+
+            &:active {
+                position: relative;
+                top: 4px;
+                box-shadow:0 4px darken($couleur1, 15);
+            }
+        }
+    }
+}
+.about-job {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-areas: 
+    'job1 job2 job3';
+    grid-template-columns: 3 1fr;
+
+    .job-1 {
+        grid-area: job1;
+    }
+    
+    .job-2 {
+        grid-area: job2;
+    }
+    
+    .job-3 {
+        grid-area: job3;
+    }
+    
+    .job {
+        background: lighten($couleur1, 5);
+        padding: .5rem;
+        border-bottom: $couleur2 5px solid;
+        border-top: $couleur2 5px solid;
+    }
+}
+.projects {
+    display: grid;
+    grid-gap: .7rem;
+    grid-template-columns: repeat(3, 1fr);
+
+    img {
+        width: 100%;
+        height: auto;
+    }
+    .item {
+        margin-bottom: 15px;
+        .overlay {
+            padding: 10px;
+            background: darken($couleur1, 10);
+            color: white;
+            @include easeOut;
+            h3 {
+                color: $couleur2;
+            }
+        }
+        .progresss {
+            width: 100%;
+            min-height: 75%;
+            background-color: black;
+        }
+
+        
+    
+    }
+    
+}
+.my-skills {
+    padding: 0 50px;
+    display: grid;
+    grid-gap: .7rem;
+    grid-template-columns: repeat(5, 1fr);
+    
+    .item {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    img {
+        width: 100%;
+        height: auto;
+        vertical-align: middle;
+
+        &:hover {
+            @include easeOut;
+        }
+    }
+}
+
+.boxes {
+    
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    margin-top: 1rem;
+
+    div {
+        font-size: 2rem;
+        border: 3px white solid;
+        padding: 1.5rem 2rem;
+        margin-bottom: 3rem;
+        @include easeOut;
+
+        &:hover {
+            padding: .5rem 1.5rem;
+            background-color: $couleur2;
+            span {
+                color: white;
+            }
+        }
+    }
+}
+
+.btn {
+    display: block;
+    padding: .5rem 1rem;
+    border: 0;
+    margin-bottom: .3rem;
+
+    &:hover {
+        background-color: $couleur2;
+    }
+}
+
+.btn-light {
+    @extend .btn;
+    background-color: darken($couleur1, 50);
+}
+footer {
+    width: 100%;
+    text-align: center;
+    color: white;
+    padding: 1rem;
+    background: darken($couleur1, 10);
+    height: 80px;
+    i {
+        cursor: pointer;
+    }
+}
+
+@import 'mobile';
